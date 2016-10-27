@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OdeToFood.Controller
+namespace OdeToFood.Controllers
 {
     [Route("company/[controller]/[action]")]
     public class AboutController
