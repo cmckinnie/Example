@@ -21,7 +21,7 @@ namespace OdeToFood
             builder
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json")
-                .AddEnvironmentVariables(); 
+                .AddEnvironmentVariables();  
 
             Configuration = builder.Build();
         }
