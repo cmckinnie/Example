@@ -9,7 +9,10 @@
         @foreach (var restuarant in Model.Restaurants)
         {
             <tr>
-                <td>@restuarant.Id</td>
+                <td>
+                    @*<a href="/home/details/@restuarant.Id">Details</a>*@
+                    @Html.ActionLink("View","Details",new {id=@restuarant.Id})
+                </td>
                 <td>@restuarant.Name</td>
             </tr>
         }

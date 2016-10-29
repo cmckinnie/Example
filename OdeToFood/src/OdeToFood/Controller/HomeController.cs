@@ -22,10 +22,46 @@ namespace OdeToFood.Controllers
 
         public IActionResult Index()
         {
-            var model = new HomePageViewModel();
-            model.Restaurants = _restaurantData.GetAll();
-            model.CurrentMessage = _greeter.GetGreeting();
+            var model = new HomePageViewModel
+            {
+                Restaurants = _restaurantData.GetAll(),
+                CurrentMessage = _greeter.GetGreeting()
+            };
             return View(model);
+        }
+
+        public IActionResult Details(int id)
+        {
+            var model = _restaurantData.Get(id);
+            if (model == null)
+                return RedirectToAction("Index");
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(RestaurantEditViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var newRestaurant = new Restaurant
+                {
+                    Cuisine = model.Cuisine,
+                    Name = model.Name
+                };
+
+                _restaurantData.Add(newRestaurant);
+
+                return RedirectToAction("Details", new {id = newRestaurant.Id});
+            }
+
+            return View();
+
         }
     }
 }
