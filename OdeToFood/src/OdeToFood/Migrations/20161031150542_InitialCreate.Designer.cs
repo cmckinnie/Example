@@ -8,7 +8,7 @@ using OdeToFood.Entities;
 namespace OdeToFood.Migrations
 {
     [DbContext(typeof(OdeTFoodDbContext))]
-    [Migration("20161030013234_InitialCreate")]
+    [Migration("20161031150542_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

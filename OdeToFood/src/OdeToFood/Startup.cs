@@ -38,7 +38,8 @@ namespace OdeToFood
             services.AddSingleton(Configuration);
             services.AddSingleton<IGreeter, Greeter>();
             services.AddScoped<IRestaurantData, SqlRestaurantData>();
-            services.AddDbContext<OdeTFoodDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("OdeToFood")));
+            services.AddDbContext<OdeTFoodDbContext>(
+                options => options.UseSqlServer(Configuration.GetConnectionString("OdeToFood")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
